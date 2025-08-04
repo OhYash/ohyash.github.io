@@ -311,12 +311,8 @@
           <div class="col-4 col-12-small">
             <ul class="labeled-icons">
               <li>
-                <h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
-                <a href="tel:+918104271666">+91-810-427-1666</a>
-              </li>
-              <li>
                 <h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
-                <a href="#">yashyadav.710@outlook.com</a>
+                <a href="javascript:void(0)" id="email-reveal" data-encoded="eWFzaHlhZGF2LjcxMEBvdXRsb29rLmNvbQ==" onclick="revealEmail(event, this)">Click to reveal email</a>
               </li>
               <li>
                 <h3 class="icon solid fa-home"><span class="label">Address</span></h3>
@@ -651,7 +647,7 @@
           <li><a href="https://github.com/OhYash/" class="icon brands fa-github"><span class="label">Github</span></a></li>
           <li><a href="https://twitter.com/OhY4sh" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
           <li><a href="http://facebook.com/ohy4sh" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-          <li><a href="mailto:yashyadav.710@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+          <li><a href="javascript:void(0)" id="footer-email-reveal" data-encoded="eWFzaHlhZGF2LjcxMEBvdXRsb29rLmNvbQ==" onclick="revealEmail(event, this)" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
           <li><a href="#five" class="icon solid fa-comments"><span class="label">Contact</span></a></li>
         </ul>
         <ul class="copyright">
@@ -669,5 +665,15 @@
     <script src="assets/js/main.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178066231-1"></script>
 	<script src="assets/js/analytics.js"></script>
+	<script>
+		function revealEmail(event, element) {
+			event.preventDefault();
+			const encoded = element.getAttribute('data-encoded');
+			const email = atob(encoded);
+			element.textContent = email;
+			element.href = 'mailto:' + email;
+			element.onclick = function() { window.location.href = 'mailto:' + email; };
+		}
+	</script>
   </body>
 </html>
